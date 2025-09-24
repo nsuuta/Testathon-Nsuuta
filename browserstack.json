@@ -1,7 +1,7 @@
 {
     "auth": {
-        "username": "nsuutamukamanabu_pnHmzk",
-        "access_key": "rjbMvbR5nMRKb7LprARJ"
+        "username": "BROWSERSTACK_USERNAME",
+        "access_key": "BROWSERSTACK_ACCESS_KEY"
     },
     "browsers": [
         {
