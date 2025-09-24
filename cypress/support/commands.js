@@ -29,8 +29,10 @@
 
 Cypress.Commands.add("successfullogin", (username, password) => {
 //user name dropdown
-cy.get('#username').click();
-cy.contains('.css-11unzgr', 'demouser').click();
+cy.get('#username .css-yk16xz-control').click();
+//cy.get('#username').click();
+cy.get('#react-select-2-option-0-0').click()
+//cy.contains('.css-11unzgr', 'demouser').click();
 
 // Password dropdown
 cy.get('#password').click();
@@ -41,7 +43,54 @@ cy.get('#login-btn').click();
  
 });
 
-Cypress.Commands.add("unsuccessfullogin", () => {
+Cypress.Commands.add("favuserlogin", (username, password) => {
+//user name dropdown
+cy.get('#username .css-yk16xz-control').click();
+cy.get('#react-select-2-option-0-3').click()
+
+// Password dropdown
+cy.get('#password').click();
+cy.contains('.css-11unzgr', 'testingisfun99').click();
+
+// Login button
+cy.get('#login-btn').click();
+ 
+});
+
+Cypress.Commands.add("existingorderslogin", (username, password) => {
+//user name dropdown
+cy.get('#username').click();
+cy.contains('.css-11unzgr', 'existing_orders').click();
+
+// Password dropdown
+cy.get('#password').click();
+cy.contains('.css-11unzgr', 'testingisfun99').click();
+
+// Login button
+cy.get('#login-btn').click();
+ 
+});
+
+
+Cypress.Commands.add("lockeduser", (username, password) => {
+//user name dropdown
+cy.get('#username .css-yk16xz-control').click();
+
+// Select the 5th option in the dropdown (index 4)
+cy.get('#react-select-2-option-0-4').click()
+
+
+// Password dropdown
+cy.get('#password').click();
+cy.contains('.css-11unzgr', 'testingisfun99').click();
+
+// Login button
+cy.get('#login-btn').click();
+ 
+});
+
+
+Cypress.Commands.add("emptypassword", () => {
   cy.get('#username').click();
   cy.contains('.css-11unzgr', 'demouser').click();
 
@@ -52,11 +101,91 @@ Cypress.Commands.add("unsuccessfullogin", () => {
 
 });
 
+Cypress.Commands.add("invalidusername", () => {
+ //dont select username
+
+  //dont select password
+  
+  //click on the login button
+  cy.get('#login-btn').click();
+
+});
+
+Cypress.Commands.add("validcheckout", () => {
+  //click on the add to cart button
+    cy.get('#\\31 > .shelf-item__buy-btn').click()
+
+    //click on the checkout button
+    cy.get('.buy-btn').click()
+
+    //add your firstname
+    cy.get('#firstNameInput').type('Nsuuta')
+
+    cy.wait(2000)
+    //add your last name
+    cy.get('#lastNameInput').type('Mukama')
+
+    cy.wait(2000)
+
+    //enter address
+
+    cy.get('#addressLine1Input').type('Nairobi')
+
+    cy.wait(2000)
+    //enter state or province
+
+    cy.get('#provinceInput').type('Nairobi Area')
+
+    cy.wait(2000)
+    //enter postal code
+
+    cy.get('#postCodeInput').type('1001001')
+
+    cy.wait(2000)
+
+    //click submit button
+    cy.get('#checkout-shipping-continue').click()
+
+});
+
+Cypress.Commands.add("invalidcheckout", () => {
 
 
+//click on the add to cart button
+    cy.get('#\\31 > .shelf-item__buy-btn').click()
 
+    //click on the checkout button
+    cy.get('.buy-btn').click()
 
+      //add your firstname
+    cy.get('#firstNameInput').type('N')
 
+    cy.wait(2000)
+    //add your last name
+    cy.get('#lastNameInput').type('M')
+
+    cy.wait(2000)
+
+    //enter address
+
+    cy.get('#addressLine1Input').type('x')
+
+    cy.wait(2000)
+    //enter state or province
+
+    cy.get('#provinceInput').type('.')
+
+    cy.wait(2000)
+    //enter postal code
+
+    cy.get('#postCodeInput').type('v')
+
+    cy.wait(2000)
+
+    //click submit button
+    cy.get('#checkout-shipping-continue').click()
+
+})
 
 
 

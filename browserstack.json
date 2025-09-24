@@ -82,12 +82,13 @@
         "project_name": "Testathon",
         "build_name": "Testathon Build #1",
         "exclude": [],
-        "parallels": "2",
-        "npm_dependencies": {},
+        "parallels": "2",  
+        "testObservability": true,
         "auto_import_dev_dependencies": false,
         "exclude_dependencies": [],
         "package_config_options": {},
-        "headless": true
+        "headless": true,
+        "specs": ["./cypress/e2e/**/*.cy.js"]
     },
     "connection_settings": {
         "local": false,
@@ -96,4 +97,5 @@
         "local_config_file": null
     },
     "disable_usage_reporting": false
+   
 }
